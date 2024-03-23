@@ -13,11 +13,28 @@ class User(db.Model):
     last_name = db.Column(db.String(20), nullable=False)
     image_url = db.Column(db.String, nullable=False, default=default_image)
     
-    
+    posts = db.relationship('Post', backref='user', cascade="all, delete-orphan")
+
+    @property
     def full_name(self):
         """combining first and last name"""
 
         return f"{self.first_name} {self.last_name}"
+    
+class Post(db.Model):
+    __tablename__='posts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    content = db.Column(db.String, nullable=False)
+    created_at = db.Column(db.String,
+                           nullable=False,
+                           default="todays date")
+    user_id = db.Column(db.Integer, 
+                        db.ForeignKey('users.id'), 
+                        nullable=False)
+
+    #user = db.relationship('User', backref='posts')
     
 def connect_db(app):
     """connecting to database"""

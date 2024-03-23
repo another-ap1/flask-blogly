@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/app.css">
+    <title>new post</title>
+</head>
+<body>
+    <h1>Add Post For {{user.first_name}} {{user.last_name}}</h1>
+    <form method="POST">
+        <label for="title">Title<input name="title"></label>
+        <label for="content">Content<input name="content"></label>
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>
