@@ -1,15 +1,10 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/app.css">
+{% block title %}Users{% endblock %}
 
-    <title>users</title>
-</head>
-<body>
-    <h1>Users</h1>
+{% block content %}
+
+<h1>Users</h1>
     <ul>
         {% for u in users %}
             <li>
@@ -18,6 +13,5 @@
         {% endfor %}
     </ul>
     <p><a class="btn" href="/users/new">New User</a></p>
-    
-</body>
-</html>
+
+{% endblock %}

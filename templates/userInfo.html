@@ -1,14 +1,10 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/app.css">
+{% extends 'base.html' %}
 
-    <title>user info</title>
-</head>
-<body>
+{% block title %}User{% endblock %}
+
+{% block content %}
+
     <div>
         {% if user.image_url %}
         <div>
@@ -32,5 +28,4 @@
             <a href="/users/{{ user.id }}/posts/new"><button>Add Post</button></a>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
