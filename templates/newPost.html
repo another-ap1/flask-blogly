@@ -4,11 +4,20 @@
 
 {% block content %}
 
-    <h1>Add Post For {{user.first_name}} {{user.last_name}}</h1>
+    <h1>Add Post For {{ user.full_name }}</h1>
     <form method="POST">
         <label for="title">Title<input name="title"></label>
         <label for="content">Content<input name="content"></label>
+        <div class="tags">
+            {% for tag in tags %}
+            <div>
+                <input type="checkbox" value="{{ tag.id }}" id="tag_{{tag.id}}" name="tags">
+                <label for="tag_{{tag.id}}">{{ tag.name }}</label>
+            </div>
+            {% endfor %}
+        </div>
         <button type="submit">Post</button>
+        <a href="/users/{{user.id}}"><button>Cancel</button></a>
     </form>
 
 {% endblock %}

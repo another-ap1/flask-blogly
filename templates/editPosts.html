@@ -8,6 +8,14 @@
     <form method="POST" action="/posts/{{post.id}}/edit">
         <label for="title">Title<input name="title" value="{{post.title}}"></label>
         <label for="content">Content<input name="content" value="{{post.content}}"></label>
+        <div class="tags">
+            {% for tag in tags %}
+            <div>
+                <input type="checkbox" value="{{ tag.id }}" id="tag_{{tag.id}}" name="tags">
+                <label for="tag_{{tag.id}}">{{ tag.name }}</label>
+            </div>
+            {% endfor %}
+        </div>
         <a href="/users/{{post.user_id}}"><button>Cancel</button></a>
         <button type="submit">Edit</button>
     </form>

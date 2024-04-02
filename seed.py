@@ -1,4 +1,4 @@
-from models import User, Post,db
+from models import User, Post, Tag, PostTag, db
 from app import app
 
 """Creating tables and also delteing if there is any"""
