@@ -30,7 +30,7 @@ class Post(db.Model):
     content = db.Column(db.String, nullable=False)
     created_at = db.Column(db.String,
                            nullable=False,
-                           default="todays date")
+                           default=datetime.datetime.now)
     user_id = db.Column(db.Integer, 
                         db.ForeignKey('users.id'), 
                         nullable=False)
